@@ -1,0 +1,45 @@
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!--notification start-->
+                    <section class="panel">
+                        <div class="panel-body">
+
+                            <?php
+                                //deleted success
+                                if(isset($deleted) && $deleted == true)
+                                    {
+                                        echo '
+                                                <div class="alert alert-success alert-block fade in">
+                                                    <button data-dismiss="alert" class="close close-sm" type="button">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <h4>
+                                                        <i class="fa fa-ok-sign"></i>
+                                                        Success!
+                                                    </h4>
+                                                    <p>' . $message . '</p>
+                                                </div>';
+                        ?><?php
+
+                                    }else{
+                                            echo ' <div class="alert alert-block alert-danger fade in">
+                                                        <button data-dismiss="alert" class="close close-sm" type="button">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                        <strong>Oh snap!</strong> ' . $message . '
+                                                    </div>';
+                                        }
+                            ?>
+
+
+                        </div>
+                    </section>
+                    <!--notification end-->
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,113 @@
+
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!--state overview start-->
+              <div class="row state-overview">
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol terques">
+                              <i class="fa fa-user"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class="count">
+                                  0
+                              </h1>
+                              <p>Categories</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol red">
+                              <i class="fa fa-tags"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count2">
+                                  0
+                              </h1>
+                              <p>Courses</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol yellow">
+                              <i class="fa fa-shopping-cart"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count3">
+                                  0
+                              </h1>
+                              <p>Subscribes</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol blue">
+                              <i class="fa fa-bar-chart-o"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count4">
+                                  0
+                              </h1>
+                              <p>Rates</p>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+              <!--state overview end-->
+              <div class="row">
+                  <div class="col-sm-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Our Categories
+                          </header>
+                          <table class="table table-hover">
+                              <thead>
+                              <tr>
+                                  <th>Category ID    </th>
+                                  <th>Category Name  </th>
+                                  <th>Created By     </th>
+                                  <th>Created At     </th>
+                                  <th>Category Status</th>
+                                  <th>Control        </th>
+                                  <th>View Courses   </th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <?php
+                                    foreach($categories as $cat):
+                                        $cateID      = $cat['category_id'];
+                                        $cateName    = $cat['category_name'];
+                                        $cateCreat   = $cat['created_by'];
+                                        $cateStatus  = $cat['is_active'];
+                                        $cateCreated = $cat['created_at'];
+                              ?>
+                              <tr>
+                                  <td><?php echo $cateID ?>       </td>
+                                  <td><?php echo $cateName ?>     </td>
+                                  <td><?php echo $cateCreat ?>    </td>
+                                  <td><?php echo $cateCreated ?>   </td>
+                                  <td><?php if($cateStatus == 1)
+                                                echo 'active';
+                                            else
+                                                echo 'un active'; ?>
+                                  </td>
+                                  <td><a href="courses.php?id=<?php echo $cateID; ?>" class="btn btn-block btn-success">View Courses</a>  </td>
+                                  <td>
+                                      <a href="deleteCategory.php?id=<?php echo $cateID; ?>" class="btn btn-block btn-danger">Delete</a>
+                                      <a href="updateCategory.php?id=<?php echo $cateID; ?>" class="btn btn-block btn-primary">Update</a>
+                                  </td>
+                              </tr>
+                              <?php  endforeach; ?>
+                              </tbody>
+                          </table>
+                      </section>
+                  </div>
+              </div>
+
+          </section>
+      </section>
+      <!--main content end-->

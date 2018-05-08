@@ -1,0 +1,32 @@
+
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              add category
+                          </header>
+                          <div class="panel-body">
+                              <form role="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+                                  <div class="form-group">
+                                      <label>Category Name</label>
+                                      <input type="text" class="form-control" name="category_name" placeholder="Enter Category Name ">
+                                  </div>
+                                  <label>Category Status</label>
+                                  <select class="form-control input-lg m-bot15" name="is_active">
+                                      <option value="1">active</option>
+                                      <option value="0">un active</option>
+                                  </select>
+                                  <button type="submit" class="btn btn-info">add category</button>
+                              </form>
+
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+          </section>
+      </section>
+      <!--main content end-->
