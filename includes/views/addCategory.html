@@ -9,6 +9,34 @@
                               add category
                           </header>
                           <div class="panel-body">
+                              <?php
+                                        if(isset($added) && $added == true)
+                                        {
+                                            echo '
+                                                    <div class="alert alert-success alert-block fade in">
+                                                          <button data-dismiss="alert" class="close close-sm" type="button">
+                                                              <i class="fa fa-times"></i>
+                                                          </button>
+                                                          <h4>
+                                                              <i class="fa fa-ok-sign"></i>
+                                                              Success!
+                                                          </h4>
+                                                          <p>' . $message . ' </p>
+                                                      </div>'
+                                            ;
+                                  }
+                                  else {
+                                              echo ' <div class="alert alert-block alert-danger fade in">
+                                                          <button data-dismiss="alert" class="close close-sm" type="button">
+                                                              <i class="fa fa-times"></i>
+                                                          </button>
+                                                          <strong>Oh snap!</strong> ' . $message . '
+                                                      </div>';
+                                        }
+
+                              ?>
+
+
                               <form role="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                                   <div class="form-group">
                                       <label>Category Name</label>
@@ -19,14 +47,14 @@
                                       <option value="1">active</option>
                                       <option value="0">un active</option>
                                   </select>
+                                  <input type="hidden" name="created_by" value="1">
                                   <button type="submit" class="btn btn-info">add category</button>
                               </form>
-
-                          </div>
+                        </div>
                       </section>
                   </div>
               </div>
-
+            </section>
           </section>
-      </section>
+
       <!--main content end-->

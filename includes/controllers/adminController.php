@@ -22,22 +22,7 @@ class adminController extends  controller
         throw new Exception('error when you deleting category');
     }
 
-    /**
-     * add category
-     */
-    public function addCategory($categoryName, $createdBy, $isActive)
-    {
-        $categoriesRepo = new coursesCategoriesModel();
-        $categories     = $categoriesRepo->addCategory($categoryName, $createdBy, $isActive);
-        //check
-        if($categories)
-            return $categories;
 
-
-        throw new Exception('error when you adding category');
-
-
-    }
 
     /**
      * delete caregory by id
