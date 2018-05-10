@@ -47,8 +47,22 @@ class adminController extends  controller
         if($categories)
             return $categories;
 
-        throw new Exception('error when you geting un ppublish category');
+        throw new Exception('error when you geting un publish category');
 
     }
+
+    /**
+     * get category by id
+     */
+    public function getCategoryById($categoryId)
+    {
+        $categoryRepo = new coursesCategoriesModel();
+        $category     = $categoryRepo->getCategory($categoryId);
+        if ($category)
+            return $category;
+
+        throw  new Exception('error when you retrieving category');
+    }
+
 
 }

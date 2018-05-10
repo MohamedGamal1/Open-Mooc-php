@@ -44,7 +44,7 @@ class coursesCategoriesModel extends  model
      */
     public function getCategory($categoryId)
     {
-        $this->Execute("SELECT * FROM `{$this->table}` WHERE `category_id` = $categoryId");
+        $this->Execute("SELECT * FROM `{$this->table}` WHERE `category_id` = '$categoryId'");
         return $this->GetRow();
     }
 

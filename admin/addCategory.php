@@ -28,6 +28,7 @@ if(count($_POST) > 0)
     {
         $added   = false ;
         $message = 'Error , Category  not add successfully';
+
     }
 
 }
