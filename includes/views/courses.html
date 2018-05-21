@@ -1,0 +1,123 @@
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <!--state overview start-->
+        <div class="row state-overview">
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol terques">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class="count">
+                            0
+                        </h1>
+                        <p>Categories</p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol red">
+                        <i class="fa fa-tags"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count2">
+                            0
+                        </h1>
+                        <p>Courses</p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol yellow">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count3">
+                            0
+                        </h1>
+                        <p>Subscribes</p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol blue">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count4">
+                            0
+                        </h1>
+                        <p>Rates</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--state overview end-->
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Our Courses
+                    </header>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Course ID        </th>
+                            <th>Course Name      </th>
+                            <th>Course Category  </th>
+                            <th>Course Instructor</th>
+                            <th>Created Description</th>
+                            <th>Course Cover     </th>
+                            <th>Course Status    </th>
+                            <th>Created At       </th>
+                            <th>Control          </th>
+                            <th>View Courses     </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                                foreach($courses as $course):
+                                    $courseID            = $course['course_id'];
+                                    $courseName          = $course['course_name'];
+                                    $courseCate          = $course['category_name'];
+                                    $courseInstructor    = $course['course_instructor'];
+                                    $courseDescription   = $course['course_description'];
+                                    $courseCover         = $course['course_cover'];
+                                    $courseStatus        = $course['is_active'];
+                                    $courseDate          = $course['created_at'];
+
+                              ?>
+                        <tr>
+                            <td><?php echo $courseID ?>       </td>
+                            <td><?php echo $courseName ?>     </td>
+                            <td><?php echo $courseCate ?>    </td>
+                            <td><?php echo $courseInstructor ?>   </td>
+                            <td><?php echo $courseDescription ?>   </td>
+                            <td><?php echo $courseCover ?>   </td>
+                            <td><?php if($courseStatus == 1)
+                                                echo 'active';
+                                            else
+                                                echo 'un active'; ?>
+                            </td>
+                            <td><?php echo $courseDate ?>   </td>
+                            <td><a href="lessons.php?id=<?php echo $courseID; ?>" class="btn btn-block btn-success">View Course</a>  </td>
+                            <td>
+                                <a href="deleteCourse.php?id=<?php echo $courseID; ?>" class="btn btn-block btn-danger">Delete</a>
+                                <a href="updateCourse.php?id=<?php echo $courseID; ?>" class="btn btn-block btn-primary">Update</a>
+                            </td>
+                        </tr>
+                        <?php  endforeach; ?>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+    </section>
+</section>
+<!--main content end-->

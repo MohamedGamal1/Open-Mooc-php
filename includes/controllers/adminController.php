@@ -3,6 +3,8 @@
 //models
 require_once MODELS.'/coursersCategoryEntity.php';
 require_once MODELS.'/coursesCategoriesModel.php';
+require_once MODELS.'/courseEntity.php';
+require_once MODELS.'/coursesModel.php';
 
 
 class adminController extends  controller
@@ -62,6 +64,26 @@ class adminController extends  controller
             return $category;
 
         throw  new Exception('error when you retrieving category');
+    }
+
+    ////////////////////////////////////////////////////////////////
+    //===========================================================//
+    ///////////////////////// courses /////////////////////////////
+    //===========================================================//
+    ///////////////////////////////////////////////////////////////
+
+
+    /**
+     * return all courses
+     */
+    public function  getCourses()
+    {
+        $coursesRepo = new coursesModel();
+        $courses     = $coursesRepo->getCourses();
+        if($courses)
+            return $courses;
+
+        throw new  Exception("error when you return all courses ");
     }
 
 

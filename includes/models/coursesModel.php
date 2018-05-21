@@ -76,7 +76,7 @@ class coursesModel extends model
 
     public function getCourses()
     {
-        $this->Execute("SELECT `{$this->table}`.`course_name` , `courses_categories`.`category_name` AS 'category_name' , `users`.`username` AS 'course_instructor' FROM `{$this->table}`
+        $this->Execute("SELECT `{$this->table}`.* , `courses_categories`.`category_name` AS 'category_name' , `users`.`username` AS 'course_instructor' FROM `{$this->table}`
                                 JOIN `courses_categories` ON `{$this->table}`.`course_category` = `courses_categories`.`category_id`
                                 JOIN `users` ON `{$this->table}`.`course_instructor`=`users`.`id`");
         return $this->GetRows();
